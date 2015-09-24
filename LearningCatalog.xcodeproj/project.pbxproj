@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E1246ADE1BB3BD7100DD85C9 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1246ADD1BB3BD7100DD85C9 /* WebViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		E19D8DE01BB2C806008ECC2D /* 7645_large_ibm_logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E19D8DDF1BB2C806008ECC2D /* 7645_large_ibm_logo.jpg */; settings = {ASSET_TAGS = (); }; };
+		E1CB7FEE1BB3C377009FC323 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CB7FED1BB3C377009FC323 /* TimerViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		E1F9D3D41BB282DE00AEBBD5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F9D3D31BB282DE00AEBBD5 /* AppDelegate.swift */; };
 		E1F9D3D61BB282DE00AEBBD5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F9D3D51BB282DE00AEBBD5 /* LoginViewController.swift */; };
 		E1F9D3D91BB282DE00AEBBD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1F9D3D71BB282DE00AEBBD5 /* Main.storyboard */; };
@@ -37,7 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E1246ADD1BB3BD7100DD85C9 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		E19D8DDF1BB2C806008ECC2D /* 7645_large_ibm_logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7645_large_ibm_logo.jpg; sourceTree = SOURCE_ROOT; };
+		E1CB7FED1BB3C377009FC323 /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		E1F9D3D01BB282DD00AEBBD5 /* LearningCatalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearningCatalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1F9D3D31BB282DE00AEBBD5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1F9D3D51BB282DE00AEBBD5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +150,8 @@
 			children = (
 				E1F9D3D51BB282DE00AEBBD5 /* LoginViewController.swift */,
 				E1F9D4021BB287DB00AEBBD5 /* HomeViewController.swift */,
+				E1246ADD1BB3BD7100DD85C9 /* WebViewController.swift */,
+				E1CB7FED1BB3C377009FC323 /* TimerViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -285,9 +291,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1CB7FEE1BB3C377009FC323 /* TimerViewController.swift in Sources */,
 				E1F9D3D61BB282DE00AEBBD5 /* LoginViewController.swift in Sources */,
 				E1F9D3D41BB282DE00AEBBD5 /* AppDelegate.swift in Sources */,
 				E1F9D4031BB287DB00AEBBD5 /* HomeViewController.swift in Sources */,
+				E1246ADE1BB3BD7100DD85C9 /* WebViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

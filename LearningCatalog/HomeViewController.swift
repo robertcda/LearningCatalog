@@ -63,10 +63,13 @@ class HomeViewController: UITableViewController {
         case "Notification":
             showAlert(title: "Notification", content: "A Notification would have been posted by the app.")
             showLocalNotification("Notification Test!!")
-        case "Timer":
-            performTimerFunctionality()
         case "Orientation":
             displayDeviceOrientation()
+        case "WebView":
+            self.performSegueWithIdentifier("webView", sender: nil)
+        case "Timer":
+            self.performSegueWithIdentifier("timer", sender: nil)
+
         default:
             print("")
         }
@@ -120,7 +123,7 @@ class HomeViewController: UITableViewController {
             let emptyField: UIAlertController = UIAlertController(title: alertTitle, message: alertContent, preferredStyle: .Alert)
             emptyField.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
             
-            self.view.window?.rootViewController!.presentViewController(emptyField, animated: true, completion: nil)
+            self.presentViewController(emptyField, animated: true, completion: nil)
         
     }
 
