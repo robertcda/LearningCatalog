@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController,HomeViewDelegate {
 
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
@@ -61,8 +61,14 @@ class LoginViewController: UIViewController {
         if segue.identifier == "showHomeView"{
             let controller = segue.destinationViewController as! HomeViewController
             controller.userName = txtEmail.text
+            controller.delegate = self
         }
     }
     
+    func calledFromDelegate()
+
+    {
+        print("hello hello hello")
+    }
 }
 

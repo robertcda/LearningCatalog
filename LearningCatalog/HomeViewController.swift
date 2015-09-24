@@ -9,7 +9,14 @@
 import Foundation
 import UIKit
 
+@objc protocol HomeViewDelegate {
+    func calledFromDelegate()
+}
+
 class HomeViewController: UITableViewController {
+    
+     weak var delegate:HomeViewDelegate!
+    
     var arrSessions: NSMutableArray!
     var userName: String!
     
@@ -39,7 +46,7 @@ class HomeViewController: UITableViewController {
         /*
         http://api.geonames.org/postalCodeLookupJSON?postalcode=560029&country=IN&username=demo
         */
-        let strURL = "http://api.geonames.org/postalCodeLookupJSON?postalcode=560029&country=IN&username=demo"
+        let strURL = "http://api.geonames.org/postalCodeLookupJSON?postalcode=560029&country=IN&username=vivek"
         let url = NSURL(string: strURL)
         if let url = url
         {
@@ -49,24 +56,13 @@ class HomeViewController: UITableViewController {
             NSURLConnection.sendAsynchronousRequest(<#T##request: NSURLRequest##NSURLRequest#>, queue: <#T##NSOperationQueue#>, completionHandler: <#T##(NSURLResponse?, NSData?, NSError?) -> Void#>)
             */
             
-            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler:parseResp)
+            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:parseResp)
             
             
         }
 //        let urlConnection = NSURLConnection
         
     
-    }
-    
-    func parseResp(urlRespone:NSURLResponse?, responseData:NSData?, error:NSError?) {
-        if let responseDataUnwrapped = responseData
-        {
-            let responseString = String(data: responseDataUnwrapped, encoding: NSASCIIStringEncoding)
-            print(responseString)
-        }else
-        {
-            print ("\(error)")
-        }
     }
     
     override func didReceiveMemoryWarning()
@@ -164,6 +160,50 @@ class HomeViewController: UITableViewController {
             self.presentViewController(emptyField, animated: true, completion: nil)
         
     }
+    
+    // MARK: - JSON parsing.
+    
+    func parseResp(urlRespone:NSURLResponse?, responseData:NSData?, error:NSError?) {
+        if let responseDataUnwrapped = responseData
+        {
+            let responseString = String(data: responseDataUnwrapped, encoding: NSASCIIStringEncoding)
+            print(responseString)
+            
+            print(jsonValueForKey(KeyPath: "postalcodes", jsonData: responseDataUnwrapped))
+        }else
+        {
+            print ("\(error)")
+        }
+    }
+    
+    func jsonValueForKey(KeyPath keyPath:String, jsonData:NSData) -> AnyObject
+    {
+        do{
+          let jsonObject = try NSJSONSerialization.JSONObjectWithData(jsonData, options: .AllowFragments) as? NSDictionary
+            
+            if let jsonDictionary = jsonObject
+            {
+                if keyPath.isEmpty
+                {
+                    return jsonObject!
+                }else
+                {
+                    if let object = jsonObject?.valueForKey(keyPath)
+                    {
+                        return object
+                    }
+                }
+            }
+            
+        }
+        catch
+        {
+            print(" Error : \(error) ")
+        }
+        
+        return "";
+    }
+    
 
     
 }
