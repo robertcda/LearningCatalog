@@ -17,6 +17,9 @@ class LoginViewController: UIViewController,HomeViewDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        txtEmail.text = ""
+        txtPassword.text = ""
+
         /* Extentions: To show prefixed string... */
         let prefixedString  = "string".addPrefix ("Whatever") ; print(prefixedString)
     }
@@ -25,7 +28,13 @@ class LoginViewController: UIViewController,HomeViewDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    override func viewWillAppear(animated: Bool) {
 
+        txtEmail.text = ""
+        txtPassword.text = ""
+
+        super.viewWillAppear(animated)
+    }
     @IBAction func bthSignInTapped(sender: UIButton) {
         if txtEmail.text != "" && txtPassword.text != ""
         {

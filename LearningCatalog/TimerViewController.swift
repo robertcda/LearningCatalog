@@ -56,8 +56,9 @@ class TimerViewController: UIViewController {
         self.presentedViewController?.dismissViewControllerAnimated(true, completion: nil)
         
         let emptyField: UIAlertController = UIAlertController(title: alertTitle, message: alertContent, preferredStyle: .Alert)
-        emptyField.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: handlerForPopping))
-        
+        emptyField.addAction(UIAlertAction(title: "OK", style: .Default , handler: nil))
+        emptyField.addAction(UIAlertAction(title: "Back", style: .Cancel, handler: handlerForPopping))
+
         self.presentViewController(emptyField, animated: true, completion: nil)
     }
     

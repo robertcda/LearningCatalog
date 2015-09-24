@@ -154,7 +154,7 @@
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="8"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="20" y="110" width="360" height="345"/>
+                                    <rect key="frame" x="20" y="110" width="360" height="271"/>
                                 </variation>
                             </textView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Key Path To Traverse" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CGh-pa-EfG">
@@ -162,21 +162,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="20" y="463" width="360" height="30"/>
+                                    <rect key="frame" x="20" y="389" width="360" height="30"/>
                                 </variation>
                                 <connections>
                                     <outlet property="delegate" destination="1Qm-5Z-kjF" id="kbr-f7-LIr"/>
                                 </connections>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Traversed Content" translatesAutoresizingMaskIntoConstraints="NO" id="4Ii-QF-zLp">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="8"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="20" y="501" width="360" height="232"/>
-                                </variation>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FRb-uh-UUb">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" title="Go"/>
@@ -187,6 +178,15 @@
                                     <action selector="urlFetchButtonClicked:" destination="1Qm-5Z-kjF" eventType="touchUpInside" id="yLC-11-B2L"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Traversed Content" translatesAutoresizingMaskIntoConstraints="NO" id="4Ii-QF-zLp">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="8"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="20" y="427" width="360" height="232"/>
+                                </variation>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -194,8 +194,8 @@
                                 <exclude reference="ZGZ-kv-7a4"/>
                                 <exclude reference="bpG-Yj-Tk1"/>
                                 <exclude reference="CGh-pa-EfG"/>
-                                <exclude reference="4Ii-QF-zLp"/>
                                 <exclude reference="FRb-uh-UUb"/>
+                                <exclude reference="4Ii-QF-zLp"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -203,8 +203,8 @@
                                 <include reference="ZGZ-kv-7a4"/>
                                 <include reference="bpG-Yj-Tk1"/>
                                 <include reference="CGh-pa-EfG"/>
-                                <include reference="4Ii-QF-zLp"/>
                                 <include reference="FRb-uh-UUb"/>
+                                <include reference="4Ii-QF-zLp"/>
                             </mask>
                         </variation>
                     </view>
