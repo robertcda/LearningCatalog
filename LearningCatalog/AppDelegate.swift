@@ -27,8 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("NOt correct")
             return true
         }
-        print("Code continues execution");
-        
         return true
     }
 

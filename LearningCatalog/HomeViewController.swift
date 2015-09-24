@@ -10,12 +10,12 @@ import Foundation
 import UIKit
 
 @objc protocol HomeViewDelegate {
-    func calledFromDelegate()
+    func calledFromDelegate(message:String)
 }
 
 class HomeViewController: UITableViewController {
     
-    weak var delegate:HomeViewDelegate!
+    weak var delegate:HomeViewDelegate?
     
     var arrSessions: NSMutableArray!
     var userName: String!
@@ -57,7 +57,8 @@ class HomeViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
-        switch subjectSelected()
+        let subSelectedValue = subjectSelected()
+        switch subSelectedValue
         {
         case "Notification":
             showAlert(title: "Notification", content: "A Notification would have been posted by the app.")
@@ -72,7 +73,7 @@ class HomeViewController: UITableViewController {
             self.performSegueWithIdentifier("jsonSegue", sender: nil)
 
         default:
-            print("")
+            self.delegate?.calledFromDelegate("Hey Delegate !! I recieved something(\(subSelectedValue)) i didnt understand")
         }
     }
     

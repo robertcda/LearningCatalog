@@ -7,6 +7,6 @@
 	<string>Notification</string>
 	<string>Timer</string>
 	<string>Orientation</string>
-	<string>Others</string>
+	<string>Delegate(LookAtLog)</string>
 </array>
 </plist>

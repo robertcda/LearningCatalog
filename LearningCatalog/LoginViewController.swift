@@ -77,8 +77,8 @@ class LoginViewController: UIViewController,HomeViewDelegate {
         }
     }
     
-    func calledFromDelegate(){
-        print("hello hello hello")
+    func calledFromDelegate(message: String) {
+        print("LoginViewControllerr: Recieved message[\(message)]")
     }
 }
 

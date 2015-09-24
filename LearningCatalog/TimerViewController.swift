@@ -36,12 +36,10 @@ class TimerViewController: UIViewController {
     }
 
     func updateLabel(){
-        print("\(__FUNCTION__)")
         timeLbl.text = "\(count)"
     }
     
     func timerFired(){
-        print("\(__FUNCTION__)")
         count--
         updateLabel()
 
