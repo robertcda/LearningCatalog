@@ -17,7 +17,7 @@ class LoginViewController: UIViewController,HomeViewDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        /* To show prefixed string... */
+        /* Extentions: To show prefixed string... */
         let prefixedString  = "string".addPrefix ("Whatever") ; print(prefixedString)
     }
 
