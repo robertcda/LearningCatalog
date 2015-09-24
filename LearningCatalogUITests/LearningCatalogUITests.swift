@@ -3,7 +3,7 @@
 //  LearningCatalogUITests
 //
 //  Created by Robert on 23/09/15.
-//  Copyright © 2015 IBM. All rights reserved.
+//  
 //
 
 import XCTest
