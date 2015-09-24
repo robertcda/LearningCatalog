@@ -107,7 +107,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="wow-eh-KaU" kind="show" identifier="timer" id="9mh-Mk-klR"/>
+                                    <segue destination="hFe-cR-9Xy" kind="show" identifier="webView" id="pw7-sp-eEu"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -116,6 +116,9 @@
                             <outlet property="delegate" destination="aHa-D9-Ty3" id="Zjd-Zk-YaT"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="wow-eh-KaU" kind="show" identifier="timer" id="1Sk-gp-VsU"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0hy-bf-eSV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
