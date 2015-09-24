@@ -68,9 +68,7 @@ class LoginViewController: UIViewController,HomeViewDelegate {
         }
     }
     
-    func calledFromDelegate()
-
-    {
+    func calledFromDelegate(){
         print("hello hello hello")
     }
 }

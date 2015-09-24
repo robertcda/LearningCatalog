@@ -45,24 +45,15 @@ class HomeViewController: UITableViewController {
     {
         /*
         http://api.geonames.org/postalCodeLookupJSON?postalcode=560029&country=IN&username=demo
+        This is a sample link to just get some JSON response...
         */
         let strURL = "http://api.geonames.org/postalCodeLookupJSON?postalcode=560029&country=IN&username=vivek"
         let url = NSURL(string: strURL)
         if let url = url
         {
             let request = NSURLRequest(URL: url)
-            
-            /*
-            NSURLConnection.sendAsynchronousRequest(<#T##request: NSURLRequest##NSURLRequest#>, queue: <#T##NSOperationQueue#>, completionHandler: <#T##(NSURLResponse?, NSData?, NSError?) -> Void#>)
-            */
-            
             NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:parseResp)
-            
-            
         }
-//        let urlConnection = NSURLConnection
-        
-    
     }
     
     override func didReceiveMemoryWarning()
@@ -122,18 +113,6 @@ class HomeViewController: UITableViewController {
         }
     }
     
-    // MARK: Timer
-    func performTimerFunctionality(){
-        showAlert(title: "Timer Functionality", content: "A Local notification will appear in about 3 seconds....")
-         NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: "timerFired", userInfo: nil, repeats: false)
-    }
-    
-    func timerFired()
-    {
-        showAlert(title: "Timer Functionality", content: "Timer Fired")
-        showLocalNotification("Timer Has Fired")
-    }
-    
     // MARK: Notification
     func showLocalNotification(bodyContent: String)    {
         UIApplication.sharedApplication().cancelAllLocalNotifications()
@@ -181,23 +160,19 @@ class HomeViewController: UITableViewController {
         do{
           let jsonObject = try NSJSONSerialization.JSONObjectWithData(jsonData, options: .AllowFragments) as? NSDictionary
             
-            if let jsonDictionary = jsonObject
-            {
-                if keyPath.isEmpty
-                {
-                    return jsonObject!
+            if let jsonDictionary = jsonObject{
+                if keyPath.isEmpty{
+                    return jsonDictionary
                 }else
                 {
-                    if let object = jsonObject?.valueForKey(keyPath)
-                    {
+                    if let object = jsonDictionary.valueForKey(keyPath){
                         return object
                     }
                 }
             }
             
         }
-        catch
-        {
+        catch{
             print(" Error : \(error) ")
         }
         

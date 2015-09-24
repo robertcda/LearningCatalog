@@ -35,7 +35,6 @@ class TimerViewController: UIViewController {
     {
         print("\(__FUNCTION__)")
         timeLbl.text = "\(count)"
-//        showAlert(title: "Timer Functionality", content: "A Local notification will appear in about 3 seconds....")
     }
     
     func timerFired()
