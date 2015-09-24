@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fz5-hO-wif">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
@@ -34,12 +35,6 @@
                                     <action selector="bthSignInTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mCg-Jh-3ll"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="7645_large_ibm_logo.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="diB-Ca-7ne">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="80" y="94" width="240" height="128"/>
-                                </variation>
-                            </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Email id" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yfT-dC-nnj">
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -58,24 +53,30 @@
                                     <action selector="bthResetButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fer-xb-tar"/>
                                 </connections>
                             </button>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="LearningLoginImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="trx-3r-rxj">
+                                <rect key="frame" x="0.0" y="-160" width="124" height="160"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="126" y="72" width="161" height="150"/>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="vd2-1t-3hR"/>
                                 <exclude reference="7H4-i3-spQ"/>
-                                <exclude reference="diB-Ca-7ne"/>
                                 <exclude reference="yfT-dC-nnj"/>
                                 <exclude reference="sZr-VM-EIs"/>
+                                <exclude reference="trx-3r-rxj"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="vd2-1t-3hR"/>
                                 <include reference="7H4-i3-spQ"/>
-                                <include reference="diB-Ca-7ne"/>
                                 <include reference="yfT-dC-nnj"/>
                                 <include reference="sZr-VM-EIs"/>
+                                <include reference="trx-3r-rxj"/>
                             </mask>
                         </variation>
                     </view>
@@ -228,6 +229,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="7645_large_ibm_logo.jpg" width="757" height="399"/>
+        <image name="LearningLoginImage.png" width="124" height="160"/>
     </resources>
 </document>

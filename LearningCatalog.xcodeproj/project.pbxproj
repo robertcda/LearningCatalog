@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		E1246ADE1BB3BD7100DD85C9 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1246ADD1BB3BD7100DD85C9 /* WebViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		E19D8DE01BB2C806008ECC2D /* 7645_large_ibm_logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E19D8DDF1BB2C806008ECC2D /* 7645_large_ibm_logo.jpg */; settings = {ASSET_TAGS = (); }; };
 		E1CB7FEE1BB3C377009FC323 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CB7FED1BB3C377009FC323 /* TimerViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		E1CB7FF21BB3CD39009FC323 /* JSONViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CB7FF11BB3CD39009FC323 /* JSONViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		E1CB7FF41BB3DB5B009FC323 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CB7FF31BB3DB5B009FC323 /* Extensions.swift */; settings = {ASSET_TAGS = (); }; };
+		E1CB7FF61BB3F0B0009FC323 /* LearningLoginImage.png in Resources */ = {isa = PBXBuildFile; fileRef = E1CB7FF51BB3F0B0009FC323 /* LearningLoginImage.png */; settings = {ASSET_TAGS = (); }; };
 		E1F9D3D41BB282DE00AEBBD5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F9D3D31BB282DE00AEBBD5 /* AppDelegate.swift */; };
 		E1F9D3D61BB282DE00AEBBD5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F9D3D51BB282DE00AEBBD5 /* LoginViewController.swift */; };
 		E1F9D3D91BB282DE00AEBBD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1F9D3D71BB282DE00AEBBD5 /* Main.storyboard */; };
@@ -42,10 +42,10 @@
 
 /* Begin PBXFileReference section */
 		E1246ADD1BB3BD7100DD85C9 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
-		E19D8DDF1BB2C806008ECC2D /* 7645_large_ibm_logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7645_large_ibm_logo.jpg; sourceTree = SOURCE_ROOT; };
 		E1CB7FED1BB3C377009FC323 /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		E1CB7FF11BB3CD39009FC323 /* JSONViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONViewController.swift; sourceTree = "<group>"; };
 		E1CB7FF31BB3DB5B009FC323 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		E1CB7FF51BB3F0B0009FC323 /* LearningLoginImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LearningLoginImage.png; sourceTree = SOURCE_ROOT; };
 		E1F9D3D01BB282DD00AEBBD5 /* LearningCatalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearningCatalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1F9D3D31BB282DE00AEBBD5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1F9D3D51BB282DE00AEBBD5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -91,7 +91,7 @@
 		E19D8DDE1BB2C7EB008ECC2D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E19D8DDF1BB2C806008ECC2D /* 7645_large_ibm_logo.jpg */,
+				E1CB7FF51BB3F0B0009FC323 /* LearningLoginImage.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -268,9 +268,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E19D8DE01BB2C806008ECC2D /* 7645_large_ibm_logo.jpg in Resources */,
 				E1F9D4051BB2891600AEBBD5 /* Resource.plist in Resources */,
 				E1F9D3DE1BB282DE00AEBBD5 /* LaunchScreen.storyboard in Resources */,
+				E1CB7FF61BB3F0B0009FC323 /* LearningLoginImage.png in Resources */,
 				E1F9D3DB1BB282DE00AEBBD5 /* Assets.xcassets in Resources */,
 				E1F9D3D91BB282DE00AEBBD5 /* Main.storyboard in Resources */,
 			);
