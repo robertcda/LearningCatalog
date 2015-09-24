@@ -17,11 +17,8 @@ class TimerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        resetTimer(UIAlertAction())
         self.title = "Timer Experiment"
-        count = 10
-        updateLabel()
-        timer =  NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "timerFired", userInfo: nil, repeats: true)
         // Do any additional setup after loading the view.
     }
 
@@ -54,11 +51,18 @@ class TimerViewController: UIViewController {
         self.presentedViewController?.dismissViewControllerAnimated(true, completion: nil)
         
         let emptyField: UIAlertController = UIAlertController(title: alertTitle, message: alertContent, preferredStyle: .Alert)
-        emptyField.addAction(UIAlertAction(title: "OK", style: .Default , handler: nil))
+        emptyField.addAction(UIAlertAction(title: "Reset", style: .Default , handler: resetTimer))
         emptyField.addAction(UIAlertAction(title: "Back", style: .Cancel, handler: handlerForPopping))
 
         self.presentViewController(emptyField, animated: true, completion: nil)
     }
+    
+    func resetTimer(action:UIAlertAction){
+        count = 10
+        updateLabel()
+        timer =  NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "timerFired", userInfo: nil, repeats: true)
+    }
+
     
     func handlerForPopping(action:UIAlertAction){
         self.navigationController?.popViewControllerAnimated(true)
