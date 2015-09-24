@@ -7,13 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E19D8DE01BB2C806008ECC2D /* 7645_large_ibm_logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E19D8DDF1BB2C806008ECC2D /* 7645_large_ibm_logo.jpg */; settings = {ASSET_TAGS = (); }; };
 		E1F9D3D41BB282DE00AEBBD5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F9D3D31BB282DE00AEBBD5 /* AppDelegate.swift */; };
-		E1F9D3D61BB282DE00AEBBD5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F9D3D51BB282DE00AEBBD5 /* ViewController.swift */; };
+		E1F9D3D61BB282DE00AEBBD5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F9D3D51BB282DE00AEBBD5 /* LoginViewController.swift */; };
 		E1F9D3D91BB282DE00AEBBD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1F9D3D71BB282DE00AEBBD5 /* Main.storyboard */; };
 		E1F9D3DB1BB282DE00AEBBD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1F9D3DA1BB282DE00AEBBD5 /* Assets.xcassets */; };
 		E1F9D3DE1BB282DE00AEBBD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1F9D3DC1BB282DE00AEBBD5 /* LaunchScreen.storyboard */; };
 		E1F9D3E91BB282DE00AEBBD5 /* LearningCatalogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F9D3E81BB282DE00AEBBD5 /* LearningCatalogTests.swift */; };
 		E1F9D3F41BB282DE00AEBBD5 /* LearningCatalogUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F9D3F31BB282DE00AEBBD5 /* LearningCatalogUITests.swift */; };
+		E1F9D4031BB287DB00AEBBD5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F9D4021BB287DB00AEBBD5 /* HomeViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		E1F9D4051BB2891600AEBBD5 /* Resource.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1F9D4041BB2891600AEBBD5 /* Resource.plist */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +37,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E19D8DDF1BB2C806008ECC2D /* 7645_large_ibm_logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7645_large_ibm_logo.jpg; sourceTree = SOURCE_ROOT; };
 		E1F9D3D01BB282DD00AEBBD5 /* LearningCatalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearningCatalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1F9D3D31BB282DE00AEBBD5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E1F9D3D51BB282DE00AEBBD5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E1F9D3D51BB282DE00AEBBD5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E1F9D3D81BB282DE00AEBBD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E1F9D3DA1BB282DE00AEBBD5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1F9D3DD1BB282DE00AEBBD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +51,8 @@
 		E1F9D3EF1BB282DE00AEBBD5 /* LearningCatalogUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LearningCatalogUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1F9D3F31BB282DE00AEBBD5 /* LearningCatalogUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningCatalogUITests.swift; sourceTree = "<group>"; };
 		E1F9D3F51BB282DE00AEBBD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1F9D4021BB287DB00AEBBD5 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		E1F9D4041BB2891600AEBBD5 /* Resource.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Resource.plist; path = ../Resource.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +80,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E19D8DDE1BB2C7EB008ECC2D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E19D8DDF1BB2C806008ECC2D /* 7645_large_ibm_logo.jpg */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		E1F9D3C71BB282DD00AEBBD5 = {
 			isa = PBXGroup;
 			children = (
@@ -97,10 +111,12 @@
 		E1F9D3D21BB282DD00AEBBD5 /* LearningCatalog */ = {
 			isa = PBXGroup;
 			children = (
+				E19D8DDE1BB2C7EB008ECC2D /* Resources */,
+				E1F9D4011BB287C700AEBBD5 /* ViewControllers */,
 				E1F9D3D31BB282DE00AEBBD5 /* AppDelegate.swift */,
-				E1F9D3D51BB282DE00AEBBD5 /* ViewController.swift */,
 				E1F9D3D71BB282DE00AEBBD5 /* Main.storyboard */,
 				E1F9D3DA1BB282DE00AEBBD5 /* Assets.xcassets */,
+				E1F9D4041BB2891600AEBBD5 /* Resource.plist */,
 				E1F9D3DC1BB282DE00AEBBD5 /* LaunchScreen.storyboard */,
 				E1F9D3DF1BB282DE00AEBBD5 /* Info.plist */,
 			);
@@ -123,6 +139,15 @@
 				E1F9D3F51BB282DE00AEBBD5 /* Info.plist */,
 			);
 			path = LearningCatalogUITests;
+			sourceTree = "<group>";
+		};
+		E1F9D4011BB287C700AEBBD5 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E1F9D3D51BB282DE00AEBBD5 /* LoginViewController.swift */,
+				E1F9D4021BB287DB00AEBBD5 /* HomeViewController.swift */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,6 +256,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E19D8DE01BB2C806008ECC2D /* 7645_large_ibm_logo.jpg in Resources */,
+				E1F9D4051BB2891600AEBBD5 /* Resource.plist in Resources */,
 				E1F9D3DE1BB282DE00AEBBD5 /* LaunchScreen.storyboard in Resources */,
 				E1F9D3DB1BB282DE00AEBBD5 /* Assets.xcassets in Resources */,
 				E1F9D3D91BB282DE00AEBBD5 /* Main.storyboard in Resources */,
@@ -258,8 +285,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1F9D3D61BB282DE00AEBBD5 /* ViewController.swift in Sources */,
+				E1F9D3D61BB282DE00AEBBD5 /* LoginViewController.swift in Sources */,
 				E1F9D3D41BB282DE00AEBBD5 /* AppDelegate.swift in Sources */,
+				E1F9D4031BB287DB00AEBBD5 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,6 +514,7 @@
 				E1F9D3FA1BB282DE00AEBBD5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E1F9D3FB1BB282DE00AEBBD5 /* Build configuration list for PBXNativeTarget "LearningCatalogTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +523,7 @@
 				E1F9D3FD1BB282DE00AEBBD5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E1F9D3FE1BB282DE00AEBBD5 /* Build configuration list for PBXNativeTarget "LearningCatalogUITests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +532,7 @@
 				E1F9D4001BB282DE00AEBBD5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
