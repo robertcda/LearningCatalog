@@ -73,7 +73,7 @@ class HomeViewController: UITableViewController {
             self.performSegueWithIdentifier("jsonSegue", sender: nil)
 
         default:
-            self.delegate?.calledFromDelegate("Hey Delegate !! I recieved something(\(subSelectedValue)) i didnt understand")
+            self.delegate?.calledFromDelegate("Hey Delegate !! I recieved (\(subSelectedValue)). Do you know about this?")
         }
     }
     
