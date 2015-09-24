@@ -15,45 +15,37 @@ import UIKit
 
 class HomeViewController: UITableViewController {
     
-     weak var delegate:HomeViewDelegate!
+    weak var delegate:HomeViewDelegate!
     
     var arrSessions: NSMutableArray!
     var userName: String!
     
-    
-    override func viewDidLoad()
-    {
+    override func viewDidLoad(){
         super.viewDidLoad()
         getSessions()
         self.title = "[\(userName)]"
         
         /* Notification for userNotification... */
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "displayDeviceOrientation", name: UIDeviceOrientationDidChangeNotification, object: nil)
-        
     }
     
-    func getSessions ()
-    {
+    func getSessions (){
         let filePath = NSBundle.mainBundle().pathForResource("Resource", ofType: "plist")
         arrSessions = NSMutableArray(contentsOfFile: filePath!)
     }
     
-    
-    override func didReceiveMemoryWarning()
-    {
+    override func didReceiveMemoryWarning(){
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     //MARK: Tableview delegates and datasource
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return arrSessions.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
-    {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         let cell = UITableViewCell(style: .Default, reuseIdentifier: "homeCell")
         cell.textLabel!.text = arrSessions[indexPath.row] as? String
         cell.accessoryType = .DisclosureIndicator
@@ -64,8 +56,7 @@ class HomeViewController: UITableViewController {
         return arrSessions.objectAtIndex(tableView.indexPathForSelectedRow!.row) as! String
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
-    {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         switch subjectSelected()
         {
         case "Notification":
@@ -87,8 +78,7 @@ class HomeViewController: UITableViewController {
     
     // MARK: Orientation
     
-    func displayDeviceOrientation()
-    {
+    func displayDeviceOrientation(){
         if subjectSelected() == "Orientation"{
             if(UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation)){
                 showAlert(title: "Orientation", content: "Landscape")
@@ -110,22 +100,13 @@ class HomeViewController: UITableViewController {
         UIApplication.sharedApplication().scheduleLocalNotification(notiication)
     }
     
-   
     // MARK: utility methods
     
     func showAlert(title alertTitle:String,content alertContent:String){
-        
         self.presentedViewController?.dismissViewControllerAnimated(true, completion: nil)
-        
-        
-            let emptyField: UIAlertController = UIAlertController(title: alertTitle, message: alertContent, preferredStyle: .Alert)
+        let emptyField: UIAlertController = UIAlertController(title: alertTitle, message: alertContent, preferredStyle: .Alert)
             emptyField.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
-            
-            self.presentViewController(emptyField, animated: true, completion: nil)
-        
+        self.presentViewController(emptyField, animated: true, completion: nil)
     }
-    
-
-    
 }
 

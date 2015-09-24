@@ -30,50 +30,39 @@ class TimerViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillDisappear(animated: Bool)
-    {
+    override func viewWillDisappear(animated: Bool){
         timer?.invalidate()
         super.viewWillDisappear(animated);
     }
-    
 
-    func updateLabel()
-    {
+    func updateLabel(){
         print("\(__FUNCTION__)")
         timeLbl.text = "\(count)"
     }
     
-    func timerFired()
-    {
+    func timerFired(){
         print("\(__FUNCTION__)")
         count--
         updateLabel()
 
-        if count <= 0
-        {
+        if count <= 0{
             timer?.invalidate()
-            
             showAlert(title: "Timer", content: "Timer Completed")
-            
         }
     }
 
+    // MARK: user alerts and utility
     func showAlert(title alertTitle:String,content alertContent:String){
-        
         self.presentedViewController?.dismissViewControllerAnimated(true, completion: nil)
-        
         
         let emptyField: UIAlertController = UIAlertController(title: alertTitle, message: alertContent, preferredStyle: .Alert)
         emptyField.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: handlerForPopping))
         
         self.presentViewController(emptyField, animated: true, completion: nil)
-        
     }
     
-    func handlerForPopping(action:UIAlertAction)
-    {
+    func handlerForPopping(action:UIAlertAction){
         self.navigationController?.popViewControllerAnimated(true)
-        
     }
 
     /*

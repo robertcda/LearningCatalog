@@ -13,18 +13,16 @@ class JSONViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var urlTextField: UITextField!
     @IBOutlet weak var jsonContentTextView: UITextView!
     @IBOutlet weak var keyPathToTraverseTextField: UITextField!
-    
+    @IBOutlet weak var traversedContentTextView: UITextView!
+
     var responseData: NSData?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.title = "JSON Fetching/Parsing"
-        
         urlTextField.text = "http://api.geonames.org/postalCodeLookupJSON?postalcode=560029&country=IN&username=vivek"
         // Do any additional setup after loading the view.
     }
-    @IBOutlet weak var traversedContentTextView: UITextView!
 
     @IBAction func urlFetchButtonClicked(sender: UIButton)
     {
@@ -116,7 +114,6 @@ class JSONViewController: UIViewController,UITextFieldDelegate {
         do{
             let jsonObject = try NSJSONSerialization.JSONObjectWithData(jsonData, options: .AllowFragments) as? NSDictionary
             
-            
             if let jsonDictionary = jsonObject{
                 if keyPath.isEmpty{
                     returnedObject = jsonDictionary
@@ -140,7 +137,6 @@ class JSONViewController: UIViewController,UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     /*
     // MARK: - Navigation
