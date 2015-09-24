@@ -19,6 +19,8 @@ class JSONViewController: UIViewController,UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "JSON Fetching/Parsing"
+        
         urlTextField.text = "http://api.geonames.org/postalCodeLookupJSON?postalcode=560029&country=IN&username=vivek"
         // Do any additional setup after loading the view.
     }
@@ -29,20 +31,26 @@ class JSONViewController: UIViewController,UITextFieldDelegate {
         fetchJSONFromURL()
     }
     
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool
+    func computeTraversedPath(newString:String)
     {
         var textToAdd = ""
+
+        if let uwResponseData = responseData{
+            let valueGotFromJSON = jsonValueForKey(KeyPath: newString, jsonData: uwResponseData)
+            textToAdd = "\(valueGotFromJSON)"
+        }
+        
+        traversedContentTextView.text = textToAdd
+    }
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool
+    {
 
         if let textStringAsNSString = keyPathToTraverseTextField.text as NSString?
         {
             let newString1 = textStringAsNSString.stringByReplacingCharactersInRange(range, withString: string)
-            
-            if let uwResponseData = responseData{
-                let valueGotFromJSON = jsonValueForKey(KeyPath: newString1, jsonData: uwResponseData)
-                textToAdd = "\(valueGotFromJSON)"
-            }
+            computeTraversedPath(newString1)
         }
-        traversedContentTextView.text = textToAdd
         
         return true
     }
@@ -78,17 +86,26 @@ class JSONViewController: UIViewController,UITextFieldDelegate {
                 if let responseString = String(data: responseDataUnwrapped, encoding: NSASCIIStringEncoding)
                 {
                     self.jsonContentTextView.text = responseString
+                    self.traversedContentTextView.text = responseString
+                    self.keyPathToTraverseTextField.text = ""
                 }
                 else
                 {
                     self.jsonContentTextView.text = ""
+                    self.traversedContentTextView.text = ""
+                    self.keyPathToTraverseTextField.text = ""
                 }
             }else
             {
-                self.jsonContentTextView.text = "Nothing to display"
+                self.jsonContentTextView.text = ""
+                self.traversedContentTextView.text = ""
+                self.keyPathToTraverseTextField.text = ""
+                
                 self.jsonContentTextView.backgroundColor = UIColor.redColor()
                 print ("\(error)")
             }
+            
+            self.computeTraversedPath("")
         })
     }
     

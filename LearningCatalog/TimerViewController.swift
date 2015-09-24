@@ -30,7 +30,13 @@ class TimerViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillDisappear(animated: Bool)
+    {
+        timer?.invalidate()
+        super.viewWillDisappear(animated);
+    }
     
+
     func updateLabel()
     {
         print("\(__FUNCTION__)")

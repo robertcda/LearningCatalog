@@ -25,7 +25,7 @@ class HomeViewController: UITableViewController {
     {
         super.viewDidLoad()
         getSessions()
-        self.title = "Welcome \(userName)"
+        self.title = "[\(userName)]"
         
         /* Notification for userNotification... */
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "displayDeviceOrientation", name: UIDeviceOrientationDidChangeNotification, object: nil)
