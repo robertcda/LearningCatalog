@@ -30,9 +30,6 @@ class HomeViewController: UITableViewController {
         /* Notification for userNotification... */
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "displayDeviceOrientation", name: UIDeviceOrientationDidChangeNotification, object: nil)
         
-        /* JSON */
-        
-        jsonParsing()
     }
     
     func getSessions ()
@@ -41,20 +38,6 @@ class HomeViewController: UITableViewController {
         arrSessions = NSMutableArray(contentsOfFile: filePath!)
     }
     
-    func jsonParsing()
-    {
-        /*
-        http://api.geonames.org/postalCodeLookupJSON?postalcode=560029&country=IN&username=demo
-        This is a sample link to just get some JSON response...
-        */
-        let strURL = "http://api.geonames.org/postalCodeLookupJSON?postalcode=560029&country=IN&username=vivek"
-        let url = NSURL(string: strURL)
-        if let url = url
-        {
-            let request = NSURLRequest(URL: url)
-            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:parseResp)
-        }
-    }
     
     override func didReceiveMemoryWarning()
     {
@@ -94,6 +77,8 @@ class HomeViewController: UITableViewController {
             self.performSegueWithIdentifier("webView", sender: nil)
         case "Timer":
             self.performSegueWithIdentifier("timer", sender: nil)
+        case "JSON Parsing":
+            self.performSegueWithIdentifier("jsonSegue", sender: nil)
 
         default:
             print("")
@@ -138,45 +123,6 @@ class HomeViewController: UITableViewController {
             
             self.presentViewController(emptyField, animated: true, completion: nil)
         
-    }
-    
-    // MARK: - JSON parsing.
-    
-    func parseResp(urlRespone:NSURLResponse?, responseData:NSData?, error:NSError?) {
-        if let responseDataUnwrapped = responseData
-        {
-            let responseString = String(data: responseDataUnwrapped, encoding: NSASCIIStringEncoding)
-            print(responseString)
-            
-            print(jsonValueForKey(KeyPath: "postalcodes", jsonData: responseDataUnwrapped))
-        }else
-        {
-            print ("\(error)")
-        }
-    }
-    
-    func jsonValueForKey(KeyPath keyPath:String, jsonData:NSData) -> AnyObject
-    {
-        do{
-          let jsonObject = try NSJSONSerialization.JSONObjectWithData(jsonData, options: .AllowFragments) as? NSDictionary
-            
-            if let jsonDictionary = jsonObject{
-                if keyPath.isEmpty{
-                    return jsonDictionary
-                }else
-                {
-                    if let object = jsonDictionary.valueForKey(keyPath){
-                        return object
-                    }
-                }
-            }
-            
-        }
-        catch{
-            print(" Error : \(error) ")
-        }
-        
-        return "";
     }
     
 
