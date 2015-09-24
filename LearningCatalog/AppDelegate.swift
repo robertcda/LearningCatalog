@@ -14,11 +14,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
+    {
         // Override point for customization after application launch.
+        /* get permission for showing user notifications... */
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Badge , categories: nil))
         
-        guard 3<5 else{
+        
+        /* Guard Example */
+        guard 3<5 else
+        {
             print("NOt correct")
             return true
         }

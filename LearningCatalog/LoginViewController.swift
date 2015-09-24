@@ -17,9 +17,8 @@ class LoginViewController: UIViewController,HomeViewDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let prefixedString  = ("string" as NSString).addPrefix("Whatever")
-        print(prefixedString)
-        ""
+        /* To show prefixed string... */
+        let prefixedString  = "string".addPrefix ("Whatever") ; print(prefixedString)
     }
 
     override func didReceiveMemoryWarning() {

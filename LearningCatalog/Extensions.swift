@@ -8,8 +8,8 @@
 
 import Foundation
 
-extension NSString{
+extension String{
     func addPrefix(prefix: String) -> String{
-        return prefix + ((self as String) as String)
+        return prefix + self
     }
 }

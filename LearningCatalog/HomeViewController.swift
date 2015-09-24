@@ -20,11 +20,6 @@ class HomeViewController: UITableViewController {
     var arrSessions: NSMutableArray!
     var userName: String!
     
-    func getSessions ()
-    {
-        let filePath = NSBundle.mainBundle().pathForResource("Resource", ofType: "plist")
-        arrSessions = NSMutableArray(contentsOfFile: filePath!)
-    }
     
     override func viewDidLoad()
     {
@@ -32,13 +27,18 @@ class HomeViewController: UITableViewController {
         getSessions()
         self.title = "Welcome \(userName)"
         
+        /* Notification for userNotification... */
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "displayDeviceOrientation", name: UIDeviceOrientationDidChangeNotification, object: nil)
-        
-        // Do any additional setup after loading the view, typically from a nib.
         
         /* JSON */
         
         jsonParsing()
+    }
+    
+    func getSessions ()
+    {
+        let filePath = NSBundle.mainBundle().pathForResource("Resource", ofType: "plist")
+        arrSessions = NSMutableArray(contentsOfFile: filePath!)
     }
     
     func jsonParsing()
