@@ -26,9 +26,47 @@ class HomeViewController: UITableViewController {
         self.title = "Welcome \(userName)"
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "displayDeviceOrientation", name: UIDeviceOrientationDidChangeNotification, object: nil)
-
         
         // Do any additional setup after loading the view, typically from a nib.
+        
+        /* JSON */
+        
+        jsonParsing()
+    }
+    
+    func jsonParsing()
+    {
+        /*
+        http://api.geonames.org/postalCodeLookupJSON?postalcode=560029&country=IN&username=demo
+        */
+        let strURL = "http://api.geonames.org/postalCodeLookupJSON?postalcode=560029&country=IN&username=demo"
+        let url = NSURL(string: strURL)
+        if let url = url
+        {
+            let request = NSURLRequest(URL: url)
+            
+            /*
+            NSURLConnection.sendAsynchronousRequest(<#T##request: NSURLRequest##NSURLRequest#>, queue: <#T##NSOperationQueue#>, completionHandler: <#T##(NSURLResponse?, NSData?, NSError?) -> Void#>)
+            */
+            
+            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler:parseResp)
+            
+            
+        }
+//        let urlConnection = NSURLConnection
+        
+    
+    }
+    
+    func parseResp(urlRespone:NSURLResponse?, responseData:NSData?, error:NSError?) {
+        if let responseDataUnwrapped = responseData
+        {
+            let responseString = String(data: responseDataUnwrapped, encoding: NSASCIIStringEncoding)
+            print(responseString)
+        }else
+        {
+            print ("\(error)")
+        }
     }
     
     override func didReceiveMemoryWarning()
