@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E1246ADE1BB3BD7100DD85C9 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1246ADD1BB3BD7100DD85C9 /* WebViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		E180706B1BB9668F007DBAFE /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E180706A1BB9668F007DBAFE /* MapViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		E1CB7FEE1BB3C377009FC323 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CB7FED1BB3C377009FC323 /* TimerViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		E1CB7FF21BB3CD39009FC323 /* JSONViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CB7FF11BB3CD39009FC323 /* JSONViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		E1CB7FF41BB3DB5B009FC323 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CB7FF31BB3DB5B009FC323 /* Extensions.swift */; settings = {ASSET_TAGS = (); }; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		E1246ADD1BB3BD7100DD85C9 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		E180706A1BB9668F007DBAFE /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		E1CB7FED1BB3C377009FC323 /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		E1CB7FF11BB3CD39009FC323 /* JSONViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONViewController.swift; sourceTree = "<group>"; };
 		E1CB7FF31BB3DB5B009FC323 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				E1246ADD1BB3BD7100DD85C9 /* WebViewController.swift */,
 				E1CB7FED1BB3C377009FC323 /* TimerViewController.swift */,
 				E1CB7FF11BB3CD39009FC323 /* JSONViewController.swift */,
+				E180706A1BB9668F007DBAFE /* MapViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				E1F9D4031BB287DB00AEBBD5 /* HomeViewController.swift in Sources */,
 				E1246ADE1BB3BD7100DD85C9 /* WebViewController.swift in Sources */,
 				E1CB7FF41BB3DB5B009FC323 /* Extensions.swift in Sources */,
+				E180706B1BB9668F007DBAFE /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

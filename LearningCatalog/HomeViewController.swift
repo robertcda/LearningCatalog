@@ -71,7 +71,8 @@ class HomeViewController: UITableViewController {
             self.performSegueWithIdentifier("timer", sender: nil)
         case "NetworkRequest":
             self.performSegueWithIdentifier("jsonSegue", sender: nil)
-
+        case "Maps":
+            self.performSegueWithIdentifier("mapViewSegue", sender: nil)
         default:
             self.delegate?.calledFromDelegate("Hey Delegate !! I recieved (\(subSelectedValue)). Do you know about this?")
         }

@@ -91,6 +91,47 @@
             </objects>
             <point key="canvasLocation" x="1168.5" y="609.75"/>
         </scene>
+        <!--Map View Controller-->
+        <scene sceneID="5kr-xp-2Qi">
+            <objects>
+                <viewController id="sf7-HT-ZhV" customClass="MapViewController" customModule="LearningCatalog" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7P2-YD-gLO"/>
+                        <viewControllerLayoutGuide type="bottom" id="98c-lm-22V"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Sa9-tc-urs">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="KcR-fc-OFx">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="400" height="546"/>
+                                </variation>
+                                <connections>
+                                    <outlet property="delegate" destination="sf7-HT-ZhV" id="23w-Jm-jsd"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="KcR-fc-OFx"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="KcR-fc-OFx"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="KcR-fc-OFx" id="ZCB-X8-Kuy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pu6-yR-1m2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2472" y="-132.75"/>
+        </scene>
         <!--Home View Controller-->
         <scene sceneID="SpW-Ut-4bp">
             <objects>
@@ -120,6 +161,7 @@
                     <connections>
                         <segue destination="wow-eh-KaU" kind="show" identifier="timer" id="1Sk-gp-VsU"/>
                         <segue destination="1Qm-5Z-kjF" kind="show" identifier="jsonSegue" id="8Ca-0D-9hT"/>
+                        <segue destination="sf7-HT-ZhV" kind="show" identifier="mapViewSegue" id="RNp-Ps-SUO"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0hy-bf-eSV" userLabel="First Responder" sceneMemberID="firstResponder"/>
