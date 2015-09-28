@@ -69,7 +69,7 @@ class HomeViewController: UITableViewController {
             self.performSegueWithIdentifier("webView", sender: nil)
         case "Timer":
             self.performSegueWithIdentifier("timer", sender: nil)
-        case "JSON Parsing":
+        case "NetworkRequest":
             self.performSegueWithIdentifier("jsonSegue", sender: nil)
 
         default:
