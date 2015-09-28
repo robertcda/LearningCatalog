@@ -17,16 +17,20 @@ class JSONViewController: UIViewController,UITextFieldDelegate {
 
     var responseData: NSData?
     
+    @IBAction func requestUsingURLConnection(sender: UIButton) {
+        fetchJSONFromURL()
+    }
+
+    @IBAction func requestUsingURLSession(sender: UIButton) {
+        fetchJSONFromSession()
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "JSON Fetching/Parsing"
         urlTextField.text = "http://api.geonames.org/postalCodeLookupJSON?postalcode=560029&country=IN&username=vivek"
         // Do any additional setup after loading the view.
-    }
-
-    @IBAction func urlFetchButtonClicked(sender: UIButton)
-    {
-        fetchJSONFromURL()
     }
     
     func computeTraversedPath(newString:String)
@@ -72,39 +76,79 @@ class JSONViewController: UIViewController,UITextFieldDelegate {
         }
     }
 
-    
-    // MARK: - JSON parsing.
-    
-    func parseResp(urlRespone:NSURLResponse?, responseData:NSData?, error:NSError?) {
-        dispatch_async(dispatch_get_main_queue(), {
-            if let responseDataUnwrapped = responseData
+    func fetchJSONFromSession()
+    {
+        if let strURL = urlTextField.text
+        {
+            if let url = NSURL(string: strURL)
             {
-                self.jsonContentTextView.backgroundColor = UIColor.greenColor()
-                self.responseData = responseData
-                if let responseString = String(data: responseDataUnwrapped, encoding: NSASCIIStringEncoding)
+                let request = NSURLRequest(URL: url)
+                let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+                let session = NSURLSession(configuration: config)
+                
+                let task = session.dataTaskWithRequest(request, completionHandler: { (data:NSData?, response:NSURLResponse?, error:NSError?) -> Void in
+                    
+                    self.responseData = data
+                    self.updateUIWIthJSONResponse()
+                    print("\(error)")
+                    /*
+                    if let responseFromServerData = data
+                    {
+                        let json = self.jsonValueForKey(KeyPath: "", jsonData: responseFromServerData)
+                        print("\(json)")
+                    }else
+                    {
+                        
+                    }*/
+                    
+                })
+                
+                task.resume()
+                
+            }
+        }
+    }
+    
+    
+    func updateUIWIthJSONResponse()
+    {
+        dispatch_async(dispatch_get_main_queue(),
+            {
+                if let responseDataUnwrapped = self.responseData
                 {
-                    self.jsonContentTextView.text = responseString
-                    self.traversedContentTextView.text = responseString
-                    self.keyPathToTraverseTextField.text = ""
-                }
-                else
+                    self.jsonContentTextView.backgroundColor = UIColor.greenColor()
+                    if let responseString = String(data: responseDataUnwrapped, encoding: NSASCIIStringEncoding)
+                    {
+                        self.jsonContentTextView.text = responseString
+                        self.traversedContentTextView.text = responseString
+                        self.keyPathToTraverseTextField.text = ""
+                    }
+                    else
+                    {
+                        self.jsonContentTextView.text = ""
+                        self.traversedContentTextView.text = ""
+                        self.keyPathToTraverseTextField.text = ""
+                    }
+                }else
                 {
                     self.jsonContentTextView.text = ""
                     self.traversedContentTextView.text = ""
                     self.keyPathToTraverseTextField.text = ""
+                    
+                    self.jsonContentTextView.backgroundColor = UIColor.redColor()
                 }
-            }else
-            {
-                self.jsonContentTextView.text = ""
-                self.traversedContentTextView.text = ""
-                self.keyPathToTraverseTextField.text = ""
                 
-                self.jsonContentTextView.backgroundColor = UIColor.redColor()
-                print ("\(error)")
-            }
-            
-            self.computeTraversedPath("")
+                self.computeTraversedPath("")
         })
+    }
+    
+    // MARK: - JSON parsing.
+    
+    func parseResp(urlRespone:NSURLResponse?, responseData:NSData?, error:NSError?)
+    {
+        self.responseData = responseData
+        print ("\(error)")
+        self.updateUIWIthJSONResponse()
     }
     
     func jsonValueForKey(KeyPath keyPath:String, jsonData:NSData) -> AnyObject
