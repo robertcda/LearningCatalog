@@ -9,7 +9,7 @@
 import Foundation
 
 extension String{
-    func addPrefix(prefix: String) -> String{
+    func addPrefix(_ prefix: String) -> String{
         return prefix + self
     }
 }

@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E1246ADE1BB3BD7100DD85C9 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1246ADD1BB3BD7100DD85C9 /* WebViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		E180706B1BB9668F007DBAFE /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E180706A1BB9668F007DBAFE /* MapViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		E1CB7FEE1BB3C377009FC323 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CB7FED1BB3C377009FC323 /* TimerViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		E1CB7FF21BB3CD39009FC323 /* JSONViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CB7FF11BB3CD39009FC323 /* JSONViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		E1CB7FF41BB3DB5B009FC323 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CB7FF31BB3DB5B009FC323 /* Extensions.swift */; settings = {ASSET_TAGS = (); }; };
-		E1CB7FF61BB3F0B0009FC323 /* LearningLoginImage.png in Resources */ = {isa = PBXBuildFile; fileRef = E1CB7FF51BB3F0B0009FC323 /* LearningLoginImage.png */; settings = {ASSET_TAGS = (); }; };
+		E1246ADE1BB3BD7100DD85C9 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1246ADD1BB3BD7100DD85C9 /* WebViewController.swift */; };
+		E180706B1BB9668F007DBAFE /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E180706A1BB9668F007DBAFE /* MapViewController.swift */; };
+		E1CB7FEE1BB3C377009FC323 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CB7FED1BB3C377009FC323 /* TimerViewController.swift */; };
+		E1CB7FF21BB3CD39009FC323 /* JSONViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CB7FF11BB3CD39009FC323 /* JSONViewController.swift */; };
+		E1CB7FF41BB3DB5B009FC323 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CB7FF31BB3DB5B009FC323 /* Extensions.swift */; };
+		E1CB7FF61BB3F0B0009FC323 /* LearningLoginImage.png in Resources */ = {isa = PBXBuildFile; fileRef = E1CB7FF51BB3F0B0009FC323 /* LearningLoginImage.png */; };
 		E1F9D3D41BB282DE00AEBBD5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F9D3D31BB282DE00AEBBD5 /* AppDelegate.swift */; };
 		E1F9D3D61BB282DE00AEBBD5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F9D3D51BB282DE00AEBBD5 /* LoginViewController.swift */; };
 		E1F9D3D91BB282DE00AEBBD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1F9D3D71BB282DE00AEBBD5 /* Main.storyboard */; };
@@ -20,8 +20,8 @@
 		E1F9D3DE1BB282DE00AEBBD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1F9D3DC1BB282DE00AEBBD5 /* LaunchScreen.storyboard */; };
 		E1F9D3E91BB282DE00AEBBD5 /* LearningCatalogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F9D3E81BB282DE00AEBBD5 /* LearningCatalogTests.swift */; };
 		E1F9D3F41BB282DE00AEBBD5 /* LearningCatalogUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F9D3F31BB282DE00AEBBD5 /* LearningCatalogUITests.swift */; };
-		E1F9D4031BB287DB00AEBBD5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F9D4021BB287DB00AEBBD5 /* HomeViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		E1F9D4051BB2891600AEBBD5 /* Resource.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1F9D4041BB2891600AEBBD5 /* Resource.plist */; settings = {ASSET_TAGS = (); }; };
+		E1F9D4031BB287DB00AEBBD5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F9D4021BB287DB00AEBBD5 /* HomeViewController.swift */; };
+		E1F9D4051BB2891600AEBBD5 /* Resource.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1F9D4041BB2891600AEBBD5 /* Resource.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -233,15 +233,18 @@
 					E1F9D3CF1BB282DD00AEBBD5 = {
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = LF89R2R9JX;
+						LastSwiftMigration = 0820;
 					};
 					E1F9D3E31BB282DE00AEBBD5 = {
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = LF89R2R9JX;
+						LastSwiftMigration = 0820;
 						TestTargetID = E1F9D3CF1BB282DD00AEBBD5;
 					};
 					E1F9D3EE1BB282DE00AEBBD5 = {
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = LF89R2R9JX;
+						LastSwiftMigration = 0820;
 						TestTargetID = E1F9D3CF1BB282DD00AEBBD5;
 					};
 				};
@@ -454,6 +457,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ibm.svapp.LearningCatalog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -466,6 +470,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ibm.svapp.LearningCatalog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -477,6 +482,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ibm.svapp.LearningCatalogTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LearningCatalog.app/LearningCatalog";
 			};
 			name = Debug;
@@ -489,6 +495,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ibm.svapp.LearningCatalogTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LearningCatalog.app/LearningCatalog";
 			};
 			name = Release;
@@ -500,6 +507,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ibm.svapp.LearningCatalogUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = LearningCatalog;
 				USES_XCTRUNNER = YES;
 			};
@@ -512,6 +520,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ibm.svapp.LearningCatalogUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = LearningCatalog;
 				USES_XCTRUNNER = YES;
 			};

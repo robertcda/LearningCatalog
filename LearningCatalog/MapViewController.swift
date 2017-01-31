@@ -35,7 +35,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
     func locationManager(_ manager: CLLocationManager,
         didUpdateLocations locations: [CLLocation])
     {
-        print("\(__FUNCTION__)")
+        print("\(#function)")
         let location = locations.last!
         
         let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
@@ -46,7 +46,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
         
         
         
-        var anotation = MKPointAnnotation()
+        let anotation = MKPointAnnotation()
         anotation.coordinate = locationManager.location!.coordinate
         anotation.title = "The Location"
         anotation.subtitle = "This is the location !!!"
@@ -55,7 +55,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
         self.locationManager.stopUpdatingLocation()
     }
     
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError)
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error)
     {
         print("Errors: " + error.localizedDescription)
     }

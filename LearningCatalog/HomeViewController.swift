@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 @objc protocol HomeViewDelegate {
-    func calledFromDelegate(message:String)
+    func calledFromDelegate(_ message:String)
 }
 
 class HomeViewController: UITableViewController {
@@ -26,11 +26,11 @@ class HomeViewController: UITableViewController {
         self.title = "[\(userName)]"
         
         /* Notification for userNotification... */
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "displayDeviceOrientation", name: UIDeviceOrientationDidChangeNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(HomeViewController.displayDeviceOrientation), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
     }
     
     func getSessions (){
-        let filePath = NSBundle.mainBundle().pathForResource("Resource", ofType: "plist")
+        let filePath = Bundle.main.path(forResource: "Resource", ofType: "plist")
         arrSessions = NSMutableArray(contentsOfFile: filePath!)
     }
     
@@ -41,22 +41,22 @@ class HomeViewController: UITableViewController {
     
     //MARK: Tableview delegates and datasource
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return arrSessions.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        let cell = UITableViewCell(style: .Default, reuseIdentifier: "homeCell")
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "homeCell")
         cell.textLabel!.text = arrSessions[indexPath.row] as? String
-        cell.accessoryType = .DisclosureIndicator
+        cell.accessoryType = .disclosureIndicator
         return cell
     }
     
     func subjectSelected() -> String{
-        return arrSessions.objectAtIndex(tableView.indexPathForSelectedRow!.row) as! String
+        return arrSessions.object(at: tableView.indexPathForSelectedRow!.row) as! String
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         let subSelectedValue = subjectSelected()
         switch subSelectedValue
         {
@@ -66,13 +66,13 @@ class HomeViewController: UITableViewController {
         case "Orientation":
             displayDeviceOrientation()
         case "WebView":
-            self.performSegueWithIdentifier("webView", sender: nil)
+            self.performSegue(withIdentifier: "webView", sender: nil)
         case "Timer":
-            self.performSegueWithIdentifier("timer", sender: nil)
+            self.performSegue(withIdentifier: "timer", sender: nil)
         case "NetworkRequest":
-            self.performSegueWithIdentifier("jsonSegue", sender: nil)
+            self.performSegue(withIdentifier: "jsonSegue", sender: nil)
         case "Maps":
-            self.performSegueWithIdentifier("mapViewSegue", sender: nil)
+            self.performSegue(withIdentifier: "mapViewSegue", sender: nil)
         default:
             self.delegate?.calledFromDelegate("Hey Delegate !! I recieved (\(subSelectedValue)). Do you know about this?")
         }
@@ -82,33 +82,33 @@ class HomeViewController: UITableViewController {
     
     func displayDeviceOrientation(){
         if subjectSelected() == "Orientation"{
-            if(UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation)){
+            if(UIDeviceOrientationIsLandscape(UIDevice.current.orientation)){
                 showAlert(title: "Orientation", content: "Landscape")
-            }else if(UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation)){
+            }else if(UIDeviceOrientationIsPortrait(UIDevice.current.orientation)){
                 showAlert(title: "Orientation", content: "Portrait")
             }
         }
     }
     
     // MARK: Notification
-    func showLocalNotification(bodyContent: String)    {
-        UIApplication.sharedApplication().cancelAllLocalNotifications()
+    func showLocalNotification(_ bodyContent: String)    {
+        UIApplication.shared.cancelAllLocalNotifications()
         
         let notiication = UILocalNotification()
         notiication.alertBody = bodyContent
         notiication.alertAction = "Open"
-        notiication.fireDate = NSDate()
+        notiication.fireDate = Date()
         notiication.soundName = UILocalNotificationDefaultSoundName
-        UIApplication.sharedApplication().scheduleLocalNotification(notiication)
+        UIApplication.shared.scheduleLocalNotification(notiication)
     }
     
     // MARK: utility methods
     
     func showAlert(title alertTitle:String,content alertContent:String){
-        self.presentedViewController?.dismissViewControllerAnimated(true, completion: nil)
-        let emptyField: UIAlertController = UIAlertController(title: alertTitle, message: alertContent, preferredStyle: .Alert)
-            emptyField.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
-        self.presentViewController(emptyField, animated: true, completion: nil)
+        self.presentedViewController?.dismiss(animated: true, completion: nil)
+        let emptyField: UIAlertController = UIAlertController(title: alertTitle, message: alertContent, preferredStyle: .alert)
+            emptyField.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(emptyField, animated: true, completion: nil)
     }
 }
 

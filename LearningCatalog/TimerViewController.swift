@@ -12,7 +12,7 @@ class TimerViewController: UIViewController {
 
     @IBOutlet weak var timeLbl: UILabel!
     
-    var timer:NSTimer?
+    var timer:Timer?
     var count = 10
     
     override func viewDidLoad() {
@@ -27,7 +27,7 @@ class TimerViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillDisappear(animated: Bool){
+    override func viewWillDisappear(_ animated: Bool){
         timer?.invalidate()
         super.viewWillDisappear(animated);
     }
@@ -37,7 +37,7 @@ class TimerViewController: UIViewController {
     }
     
     func timerFired(){
-        count--
+        count -= 1
         updateLabel()
 
         if count <= 0{
@@ -48,24 +48,24 @@ class TimerViewController: UIViewController {
 
     // MARK: user alerts and utility
     func showAlert(title alertTitle:String,content alertContent:String){
-        self.presentedViewController?.dismissViewControllerAnimated(true, completion: nil)
+        self.presentedViewController?.dismiss(animated: true, completion: nil)
         
-        let emptyField: UIAlertController = UIAlertController(title: alertTitle, message: alertContent, preferredStyle: .Alert)
-        emptyField.addAction(UIAlertAction(title: "Reset", style: .Default , handler: resetTimer))
-        emptyField.addAction(UIAlertAction(title: "Back", style: .Cancel, handler: handlerForPopping))
+        let emptyField: UIAlertController = UIAlertController(title: alertTitle, message: alertContent, preferredStyle: .alert)
+        emptyField.addAction(UIAlertAction(title: "Reset", style: .default , handler: resetTimer))
+        emptyField.addAction(UIAlertAction(title: "Back", style: .cancel, handler: handlerForPopping))
 
-        self.presentViewController(emptyField, animated: true, completion: nil)
+        self.present(emptyField, animated: true, completion: nil)
     }
     
-    func resetTimer(action:UIAlertAction){
+    func resetTimer(_ action:UIAlertAction){
         count = 10
         updateLabel()
-        timer =  NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "timerFired", userInfo: nil, repeats: true)
+        timer =  Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TimerViewController.timerFired), userInfo: nil, repeats: true)
     }
 
     
-    func handlerForPopping(action:UIAlertAction){
-        self.navigationController?.popViewControllerAnimated(true)
+    func handlerForPopping(_ action:UIAlertAction){
+        self.navigationController?.popViewController(animated: true)
     }
 
     /*

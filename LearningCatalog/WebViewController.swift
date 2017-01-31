@@ -12,12 +12,12 @@ class WebViewController: UIViewController,UIWebViewDelegate {
 
     @IBOutlet weak var webView: UIWebView!
     
-    var url:NSURL = NSURL(string: "https://www.google.com")!
+    var url:URL = URL(string: "https://www.google.com")!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let requestObj = NSURLRequest(URL: url)
+        let requestObj = URLRequest(url: url)
         webView.loadRequest(requestObj)
 
         // Do any additional setup after loading the view.
@@ -31,26 +31,26 @@ class WebViewController: UIViewController,UIWebViewDelegate {
 
     // MARK: - WebView delgate
     
-    func webViewDidStartLoad(webView: UIWebView)
+    func webViewDidStartLoad(_ webView: UIWebView)
     {
-        print("\(__FUNCTION__)")
+        print("\(#function)")
     }
 
-    func webViewDidFinishLoad(webView: UIWebView)
+    func webViewDidFinishLoad(_ webView: UIWebView)
     {
-        print("\(__FUNCTION__)")
+        print("\(#function)")
     }
     
-    func webView(webView: UIWebView,
-        didFailLoadWithError error: NSError?)
+    func webView(_ webView: UIWebView,
+        didFailLoadWithError error: Error)
     {
-        print("\(__FUNCTION__)")        
+        print("\(#function)")        
         
     }
     
-    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool
+    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool
     {
-        if let tmpUrl = request.URL
+        if let tmpUrl = request.url
         {
             url = tmpUrl
             print("loading url \(url)")

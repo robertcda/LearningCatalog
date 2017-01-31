@@ -15,13 +15,13 @@ class JSONViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var keyPathToTraverseTextField: UITextField!
     @IBOutlet weak var traversedContentTextView: UITextView!
 
-    var responseData: NSData?
+    var responseData: Data?
     
-    @IBAction func requestUsingURLConnection(sender: UIButton) {
+    @IBAction func requestUsingURLConnection(_ sender: UIButton) {
         fetchJSONFromURL()
     }
 
-    @IBAction func requestUsingURLSession(sender: UIButton) {
+    @IBAction func requestUsingURLSession(_ sender: UIButton) {
         fetchJSONFromSession()
     }
     
@@ -33,7 +33,7 @@ class JSONViewController: UIViewController,UITextFieldDelegate {
         // Do any additional setup after loading the view.
     }
     
-    func computeTraversedPath(newString:String)
+    func computeTraversedPath(_ newString:String)
     {
         var textToAdd = ""
 
@@ -45,12 +45,12 @@ class JSONViewController: UIViewController,UITextFieldDelegate {
         traversedContentTextView.text = textToAdd
     }
     
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
     {
 
         if let textStringAsNSString = keyPathToTraverseTextField.text as NSString?
         {
-            let newString1 = textStringAsNSString.stringByReplacingCharactersInRange(range, withString: string)
+            let newString1 = textStringAsNSString.replacingCharacters(in: range, with: string)
             computeTraversedPath(newString1)
         }
         
@@ -66,9 +66,9 @@ class JSONViewController: UIViewController,UITextFieldDelegate {
         
         if let strURL = urlTextField.text
         {
-            if let url = NSURL(string: strURL)
+            if let url = URL(string: strURL)
             {
-                NSURLConnection.sendAsynchronousRequest(NSURLRequest(URL: url), queue: NSOperationQueue(), completionHandler:parseResp)
+                NSURLConnection.sendAsynchronousRequest(URLRequest(url: url), queue: OperationQueue(), completionHandler:parseResp as! (URLResponse?, Data?, Error?) -> Void)
             }else
             {
                 print(" Mostly an invalid URL\(strURL)")
@@ -80,13 +80,13 @@ class JSONViewController: UIViewController,UITextFieldDelegate {
     {
         if let strURL = urlTextField.text
         {
-            if let url = NSURL(string: strURL)
+            if let url = URL(string: strURL)
             {
-                let request = NSURLRequest(URL: url)
-                let config = NSURLSessionConfiguration.defaultSessionConfiguration()
-                let session = NSURLSession(configuration: config)
+                let request = URLRequest(url: url)
+                let config = URLSessionConfiguration.default
+                let session = URLSession(configuration: config)
                 
-                let task = session.dataTaskWithRequest(request, completionHandler: { (data:NSData?, response:NSURLResponse?, error:NSError?) -> Void in
+                let task = session.dataTask(with: request, completionHandler: { (data:Data?, response:URLResponse?, error:NSError?) -> Void in
                     
                     self.responseData = data
                     self.updateUIWIthJSONResponse()
@@ -101,7 +101,7 @@ class JSONViewController: UIViewController,UITextFieldDelegate {
                         
                     }*/
                     
-                })
+                } as! (Data?, URLResponse?, Error?) -> Void)
                 
                 task.resume()
                 
@@ -112,12 +112,11 @@ class JSONViewController: UIViewController,UITextFieldDelegate {
     
     func updateUIWIthJSONResponse()
     {
-        dispatch_async(dispatch_get_main_queue(),
-            {
+        DispatchQueue.main.async(execute: {
                 if let responseDataUnwrapped = self.responseData
                 {
-                    self.jsonContentTextView.backgroundColor = UIColor.greenColor()
-                    if let responseString = String(data: responseDataUnwrapped, encoding: NSASCIIStringEncoding)
+                    self.jsonContentTextView.backgroundColor = UIColor.green
+                    if let responseString = String(data: responseDataUnwrapped, encoding: String.Encoding.ascii)
                     {
                         self.jsonContentTextView.text = responseString
                         self.traversedContentTextView.text = responseString
@@ -135,7 +134,7 @@ class JSONViewController: UIViewController,UITextFieldDelegate {
                     self.traversedContentTextView.text = ""
                     self.keyPathToTraverseTextField.text = ""
                     
-                    self.jsonContentTextView.backgroundColor = UIColor.redColor()
+                    self.jsonContentTextView.backgroundColor = UIColor.red
                 }
                 
                 self.computeTraversedPath("")
@@ -144,27 +143,27 @@ class JSONViewController: UIViewController,UITextFieldDelegate {
     
     // MARK: - JSON parsing.
     
-    func parseResp(urlRespone:NSURLResponse?, responseData:NSData?, error:NSError?)
+    func parseResp(_ urlRespone:URLResponse?, responseData:Data?, error:NSError?)
     {
         self.responseData = responseData
         print ("\(error)")
         self.updateUIWIthJSONResponse()
     }
     
-    func jsonValueForKey(KeyPath keyPath:String, jsonData:NSData) -> AnyObject
+    func jsonValueForKey(KeyPath keyPath:String, jsonData:Data) -> AnyObject
     {
-        var returnedObject: AnyObject = ""
+        var returnedObject: AnyObject = "" as AnyObject
 
         do{
-            let jsonObject = try NSJSONSerialization.JSONObjectWithData(jsonData, options: .AllowFragments) as? NSDictionary
+            let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: .allowFragments) as? NSDictionary
             
             if let jsonDictionary = jsonObject{
                 if keyPath.isEmpty{
                     returnedObject = jsonDictionary
                 }else
                 {
-                    if let object = jsonDictionary.valueForKey(keyPath){
-                        returnedObject = object
+                    if let object = jsonDictionary.value(forKey: keyPath){
+                        returnedObject = object as AnyObject
                     }
                 }
             }

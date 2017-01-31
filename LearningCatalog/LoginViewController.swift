@@ -28,18 +28,18 @@ class LoginViewController: UIViewController,HomeViewDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
 
         txtEmail.text = ""
         txtPassword.text = ""
 
         super.viewWillAppear(animated)
     }
-    @IBAction func bthSignInTapped(sender: UIButton) {
+    @IBAction func bthSignInTapped(_ sender: UIButton) {
         if txtEmail.text != "" && txtPassword.text != ""
         {
             if validatePasswordAndUserName(){
-                self.performSegueWithIdentifier("showHomeView", sender: nil)
+                self.performSegue(withIdentifier: "showHomeView", sender: nil)
             }else{
                 self.showAlert(title: "Invalid Login", content: "Invalid Login... \nHint(userName:1, Password: 2)")
             }
@@ -50,9 +50,9 @@ class LoginViewController: UIViewController,HomeViewDelegate {
     }
     
     func showAlert(title alertTitle:String,content alertContent:String){
-        let emptyField: UIAlertController = UIAlertController(title: alertTitle, message: alertContent, preferredStyle: .Alert)
-        emptyField.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
-        self.presentViewController(emptyField, animated: true, completion: nil)
+        let emptyField: UIAlertController = UIAlertController(title: alertTitle, message: alertContent, preferredStyle: .alert)
+        emptyField.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(emptyField, animated: true, completion: nil)
     }
     
     func validatePasswordAndUserName() -> Bool{
@@ -64,20 +64,20 @@ class LoginViewController: UIViewController,HomeViewDelegate {
         }
     }
 
-    @IBAction func bthResetButtonTapped(sender: AnyObject) {
+    @IBAction func bthResetButtonTapped(_ sender: AnyObject) {
         txtEmail.text = ""
         txtPassword.text = ""
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showHomeView"{
-            let controller = segue.destinationViewController as! HomeViewController
+            let controller = segue.destination as! HomeViewController
             controller.userName = txtEmail.text
             controller.delegate = self
         }
     }
     
-    func calledFromDelegate(message: String) {
+    func calledFromDelegate(_ message: String) {
         print("LoginViewControllerr: Recieved message[\(message)]")
     }
 }
